@@ -17,6 +17,10 @@ public class Bee : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    [Header("Layers")]
+    [SerializeField]
+    private LayerMask obstacleLayers;
+
 
     // --- | Componetns | -------------------------------------------------------------------------
 
@@ -105,8 +109,13 @@ public class Bee : MonoBehaviour
     /// </summary>
     public void TargetPlayer()
     {
+        EndControll();
+        Vector2 deltaDistance = player.PlayerCenter - (Vector2)transform.position;
+        if (Physics2D.Raycast(transform.position, deltaDistance, deltaDistance.magnitude, obstacleLayers))
+        {
+            PortBeeToPlayer();
+        }
         targetPlayer = true;
-        transform.position = (player.transform.position + Vector3.up);
     }
 
     /// <summary>
@@ -115,14 +124,11 @@ public class Bee : MonoBehaviour
     /// <returns>Return the old position of the bee.</returns>
     public Vector2 PortBeeToPlayer()
     {
-        Vector2 playerPos = player.transform.position;
+        Vector2 playerPos = player.PlayerCenter + Vector2.up * 0.05f;
         Vector2 beePos = transform.position;
         EndControll();
-        if (!targetPlayer)
-        {
-            targetPos = playerPos;
-        }
         transform.position = playerPos;
+        targetPos = transform.position;
         return beePos;
     }
 

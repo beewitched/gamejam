@@ -47,17 +47,14 @@ public class BeeControler : MonoBehaviour
 
     private void Update()
     {
-        if (bee.IsAutoControlled)
+        if (Input.GetKey(drawKey) && bee.IsAutoControlled)
         {
-            if (Input.GetKey(drawKey))
-            {
-                DrawPath();
-            }
+            DrawPath();
+        }
 
-            else if (Input.GetKeyUp(drawKey))
-            {
-                SendBee();
-            }
+        else if (Input.GetKeyUp(drawKey))
+        {
+            SendBee();
         }
 
         else if (Input.GetKeyDown(stayKey))

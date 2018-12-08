@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4628739443773382}
   - component: {fileID: 33175714985333546}
   - component: {fileID: 23475715399747030}
-  - component: {fileID: 135181349084933704}
   - component: {fileID: 114077657664986232}
   - component: {fileID: 54569496132433718}
+  - component: {fileID: 65826732923714798}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ingredient_Broccoli
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271861293167700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36936, y: 0.36936, z: 0.36936}
+  m_LocalPosition: {x: 1132.647, y: 694.7177, z: 0}
+  m_LocalScale: {x: 0.36936, y: 0.10592876, z: 0.36936}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271861293167700}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54569496132433718
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -101,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65826732923714798
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271861293167700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114077657664986232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3b06f397cce4a58b4fb1d9aa424f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient_name: Ingredient_Herb
+  ingredient_name: Ingredient_Broccoli
   sprite: {fileID: 0}
   ammount: 1
   onAmmountZero:
@@ -120,15 +132,4 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!135 &135181349084933704
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1271861293167700}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  origin: 1

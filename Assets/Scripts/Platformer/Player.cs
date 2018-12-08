@@ -90,9 +90,15 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Detect ground.
-        RaycastHit2D[] leftHits = Physics2D.RaycastAll(transform.position + Vector3.left * collider.bounds.extents.x, Vector2.down, obstacleLayers);
-        RaycastHit2D[] rightHits = Physics2D.RaycastAll(transform.position + Vector3.right * collider.bounds.extents.x, Vector2.down, obstacleLayers);
-        isGrounded = ((leftHits.Length > 1 && leftHits[1].distance < 0.05f) || (rightHits.Length > 1 && rightHits[1].distance < 0.05f));
+        isGrounded = false;
+        for (int i = -1; i <= 1; i++)
+        {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.right * collider.bounds.extents.x * i, Vector2.down, obstacleLayers);
+            if (hits.Length > 1 && hits[1].distance < 0.05f)
+            {
+                isGrounded = true;
+            }
+        }
 
         if (canMove)
         {

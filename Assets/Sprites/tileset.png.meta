@@ -42,10 +42,16 @@ TextureImporter:
     21300074: tileset_6
     21300076: tileset_7
     21300078: tileset_23
-    21300080: tileset_24
+    21300080: DoorHoles
     21300082: tileset_41
-    21300084: tileset_42
-    21300086: tileset_43
+    21300084: PreasurePlate1
+    21300086: PreasurePlate0
+    21300088: BeeIdle0
+    21300090: BeeIdle1
+    21300092: BeeIdle2
+    21300094: BeeFly0
+    21300096: BeeFly1
+    21300098: BeeFly2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1095,7 +1101,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_24
+      name: DoorHoles
       rect:
         serializedVersion: 2
         x: 640
@@ -1135,7 +1141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_42
+      name: PreasurePlate1
       rect:
         serializedVersion: 2
         x: 576
@@ -1155,7 +1161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_43
+      name: PreasurePlate0
       rect:
         serializedVersion: 2
         x: 640
@@ -1170,6 +1176,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 52958f6daf7795745b5a047d05e8d2d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7c3700f0e70204d97880666ecb860b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48a5dc6d17f7b849b0ff83b72c2b25c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b916ca3459936a14d85de9c88392b4f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e9c400a10838440a979f1a7d829d2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeff8364e35267468ad005a4ab389b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fa24adbcf54eb4fa54a5835fe7af82
       vertices: []
       indices: 
       edges: []

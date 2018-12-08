@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D), typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Bee : MonoBehaviour
 {
     // --- | Serialized | -------------------------------------------------------------------------
@@ -25,6 +26,8 @@ public class Bee : MonoBehaviour
     // --- | Componetns | -------------------------------------------------------------------------
 
     private Rigidbody2D controller;
+    private Animator animator;
+    private SpriteRenderer renderer;
 
 
     // --- | Variables | --------------------------------------------------------------------------
@@ -53,6 +56,8 @@ public class Bee : MonoBehaviour
 
     private System.Action OnBeeArival;
 
+    private bool isMoveing = false;
+
 
     // --- | Methods | ----------------------------------------------------------------------------
 
@@ -61,6 +66,8 @@ public class Bee : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -148,8 +155,12 @@ public class Bee : MonoBehaviour
             {
                 maxMove = speed;
             }
+
+            FlipSprite(deltaDistance.x);
+            animator.SetBool("isMoving", true);
             return (Vector2)transform.position + deltaDistance.normalized * maxMove * Time.deltaTime;
         }
+        animator.SetBool("isMoving", false);
         return transform.position;
     }
 
@@ -167,9 +178,11 @@ public class Bee : MonoBehaviour
             currentControllpointIndex = i;
             if (deltaDistance.magnitude < maxDistance) { continue; }
 
-
+            FlipSprite(deltaDistance.x);
+            animator.SetBool("isMoving", true);
             return (Vector2)transform.position + deltaDistance.normalized * maxDistance;
         }
+        animator.SetBool("isMoving", false);
         return EndControll();
     }
 
@@ -190,5 +203,17 @@ public class Bee : MonoBehaviour
             return beePos;
         }
         return transform.position;
+    }
+
+    private void FlipSprite(float speed)
+    {
+        if (speed > 0 && renderer.flipX)
+        {
+            renderer.flipX = false;
+        }
+        else if (speed < 0 && !renderer.flipX)
+        {
+            renderer.flipX = true;
+        }
     }
 }

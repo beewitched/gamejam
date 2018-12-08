@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
             // Shoot missle.
             if (Input.GetKeyDown(fireMisselKey))
             {
-                FireMissel();
+                FireMissle();
             };
 
             // Interact.
@@ -182,11 +182,12 @@ public class Player : MonoBehaviour
         return !Physics2D.OverlapBox(pos, collider.bounds.size, 0, obstacleLayers);
     }
 
-    private void FireMissel()
+    private void FireMissle()
     {
         Missle script = Instantiate(missel, (Vector2)collider.bounds.center, Quaternion.identity).GetComponent<Missle>();
 
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
+        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
+        Vector2 direction = renderer.flipX ? Vector2.left : Vector2.right;
         script.SetDirection(direction, collider);
     }
 

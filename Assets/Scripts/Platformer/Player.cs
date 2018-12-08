@@ -18,11 +18,18 @@ public class Player : MonoBehaviour
     private KeyCode jumpKey = KeyCode.Space;
     [SerializeField]
     private KeyCode switchKey = KeyCode.Alpha3;
+    [SerializeField]
+    private KeyCode fireMisselKey = KeyCode.Mouse0;
 
     [Header("References")]
     [SerializeField]
     Bee bee;
 
+    [Header("Prefabs")]
+    [SerializeField]
+    GameObject missel;
+
+    [Header("Layers")]
     [SerializeField]
     private LayerMask obstacleLayers;
 
@@ -81,6 +88,11 @@ public class Player : MonoBehaviour
             {
                 SwitchPos();
             }
+
+            if (Input.GetKeyDown(fireMisselKey))
+            {
+                FireMissel();
+            };
         }
     }
 
@@ -115,5 +127,13 @@ public class Player : MonoBehaviour
     private bool CheckSpace(Vector2 pos)
     {
         return !Physics2D.OverlapBox(pos + collider.offset, collider.bounds.size, 0, obstacleLayers);
+    }
+
+    private void FireMissel()
+    {
+        Missle script = Instantiate(missel, (Vector2)collider.bounds.center, Quaternion.identity).GetComponent<Missle>();
+
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
+        script.SetDirection(direction, collider);
     }
 }

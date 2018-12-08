@@ -25,15 +25,6 @@ public class Ingredient : MonoBehaviour, IInteractable {
 
     public void Pickup()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
-        {
-            distance.z++;
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0) // back
-        {
-            distance.z--    ;
-        }
-
         Vector3 currPos = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, distance.z);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(currPos);
 
@@ -50,6 +41,8 @@ public class Ingredient : MonoBehaviour, IInteractable {
 
     public void Interact()
     {
+        RecipeCreator.Instance.ReceiveInformation(COOK_TYPE.HEAT, ingredient_name);
+
         Destroy(this.gameObject);
     }
 

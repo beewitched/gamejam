@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868338968251486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.89, y: -3.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawKey: 324
-  callKey: 49
-  stayKey: 50
+  callKey: 113
+  stayKey: 114
   bee: {fileID: 0}
   obstacleLayers:
     serializedVersion: 2
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a2b512caecba8469b0f051a8a302fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jumpStrenght: 5
+  speed: 3.25
+  jumpStrenght: 6
   jumpKey: 32
-  switchKey: 51
+  switchKey: 101
   fireMisselKey: 323
-  interactKey: 101
+  interactKey: 102
   bee: {fileID: 0}
   missel: {fileID: 1052636251478714, guid: 7f379198ee0502e43aad268aaa81e333, type: 2}
   obstacleLayers:

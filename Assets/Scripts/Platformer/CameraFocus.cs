@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraFocus : MonoBehaviour
 {
     [SerializeField]
+    private bool startAtTarget = true;
+    [SerializeField]
     private Transform target;
     [SerializeField]
     private Vector2 offset = Vector2.zero;
@@ -13,6 +15,14 @@ public class CameraFocus : MonoBehaviour
     [SerializeField]
     private float lerp = 0.5f;
     private Vector2 focus;
+
+    private void Start()
+    {
+        if (startAtTarget && target != null)
+        {
+            transform.position = (Vector2)target.position + offset;
+        }
+    }
 
     private void LateUpdate()
     {

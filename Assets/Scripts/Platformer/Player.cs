@@ -40,12 +40,25 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D controller;
     private BoxCollider2D collider;
+    private Animator animator;
+    private SpriteRenderer renderer;
 
 
     // --- | Variables | --------------------------------------------------------------------------
 
     private bool canMove = true;
     private IInteractWithPlayer interactable;
+    private bool isGrounded = false;
+
+    // --- | Properties | -------------------------------------------------------------------------
+
+    public Vector2 PlayerCenter
+    {
+        get
+        {
+            return collider.bounds.center;
+        }
+    }
 
 
     // --- | Methods | ----------------------------------------------------------------------------
@@ -57,6 +70,8 @@ public class Player : MonoBehaviour
         // Get components.
         controller = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -74,13 +89,19 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        // Detect ground.
+        isGrounded = false;
+        for (int i = -1; i <= 1; i++)
+        {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.right * collider.bounds.extents.x * i, Vector2.down, obstacleLayers);
+            if (hits.Length > 1 && hits[1].distance < 0.05f)
+            {
+                isGrounded = true;
+            }
+        }
+
         if (canMove)
         {
-            // Detect ground.
-            RaycastHit2D[] leftHits = Physics2D.RaycastAll(transform.position + Vector3.left * collider.bounds.extents.x, Vector2.down, obstacleLayers);
-            RaycastHit2D[] rightHits = Physics2D.RaycastAll(transform.position + Vector3.right * collider.bounds.extents.x, Vector2.down, obstacleLayers);
-            bool isGrounded = ((leftHits.Length > 1 && leftHits[1].distance < 0.05f) || (rightHits.Length > 1 && rightHits[1].distance < 0.05f));
-
             // Jump.
             if (Input.GetKeyDown(jumpKey) && isGrounded)
             {
@@ -96,7 +117,7 @@ public class Player : MonoBehaviour
             // Shoot missle.
             if (Input.GetKeyDown(fireMisselKey))
             {
-                FireMissel();
+                FireMissle();
             };
 
             // Interact.
@@ -105,6 +126,8 @@ public class Player : MonoBehaviour
                 interactable.Interact();
             }
         }
+
+        UpdateAnimations();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -142,6 +165,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         controller.velocity += Vector2.up * jumpStrenght;
+        animator.SetTrigger("jump");
     }
 
     private void SwitchPos()
@@ -150,19 +174,36 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position = bee.PortBeeToPlayer();
+        transform.position = bee.PortBeeToPlayer() - collider.offset;
     }
 
     private bool CheckSpace(Vector2 pos)
     {
-        return !Physics2D.OverlapBox(pos + collider.offset, collider.bounds.size, 0, obstacleLayers);
+        return !Physics2D.OverlapBox(pos, collider.bounds.size, 0, obstacleLayers);
     }
 
-    private void FireMissel()
+    private void FireMissle()
     {
         Missle script = Instantiate(missel, (Vector2)collider.bounds.center, Quaternion.identity).GetComponent<Missle>();
 
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
+        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
+        Vector2 direction = renderer.flipX ? Vector2.left : Vector2.right;
         script.SetDirection(direction, collider);
+    }
+
+    private void UpdateAnimations()
+    {
+        if (controller.velocity.x < 0 && !renderer.flipX)
+        {
+            renderer.flipX = true;
+        }
+        else if (controller.velocity.x > 0 && renderer.flipX)
+        {
+            renderer.flipX = false;
+        }
+
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetFloat("speed", controller.velocity.x);
+        animator.SetFloat("gravity", controller.velocity.y);
     }
 }

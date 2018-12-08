@@ -27,22 +27,33 @@ TextureImporter:
     21300044: tileset_26
     21300046: tileset_27
     21300048: tileset_28
-    21300050: tileset_29
-    21300052: tileset_30
-    21300054: tileset_31
-    21300056: tileset_32
-    21300058: tileset_33
-    21300060: tileset_34
-    21300062: tileset_35
-    21300064: tileset_36
-    21300066: tileset_37
-    21300068: tileset_38
-    21300070: tileset_39
-    21300072: tileset_40
+    21300050: jump0
+    21300052: jump1
+    21300054: jumpToFall
+    21300056: fall0
+    21300058: land0
+    21300060: land1
+    21300062: walk0
+    21300064: walk1
+    21300066: walk2
+    21300068: walk3
+    21300070: walk4
+    21300072: walk5
     21300074: tileset_6
     21300076: tileset_7
     21300078: tileset_23
-    21300080: tileset_24
+    21300080: DoorHoles
+    21300082: tileset_41
+    21300084: PreasurePlate1
+    21300086: PreasurePlate0
+    21300088: BeeIdle0
+    21300090: BeeIdle1
+    21300092: BeeIdle2
+    21300094: BeeFly0
+    21300096: BeeFly1
+    21300098: BeeFly2
+    21300100: PlayerIdle0
+    21300102: PlayerIdle1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -780,15 +791,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_29
+      name: jump0
       rect:
         serializedVersion: 2
         x: 0
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -800,15 +811,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_30
+      name: jump1
       rect:
         serializedVersion: 2
         x: 64
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -820,15 +831,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_31
+      name: jumpToFall
       rect:
         serializedVersion: 2
         x: 128
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -840,15 +851,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_32
+      name: fall0
       rect:
         serializedVersion: 2
         x: 192
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -860,15 +871,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_33
+      name: land0
       rect:
         serializedVersion: 2
         x: 256
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -880,15 +891,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_34
+      name: land1
       rect:
         serializedVersion: 2
         x: 320
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -900,15 +911,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_35
+      name: walk0
       rect:
         serializedVersion: 2
         x: 384
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -920,15 +931,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_36
+      name: walk1
       rect:
         serializedVersion: 2
         x: 448
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -940,15 +951,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_37
+      name: walk2
       rect:
         serializedVersion: 2
         x: 512
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,15 +971,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_38
+      name: walk3
       rect:
         serializedVersion: 2
         x: 576
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -980,15 +991,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_39
+      name: walk4
       rect:
         serializedVersion: 2
         x: 640
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1000,15 +1011,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_40
+      name: walk5
       rect:
         serializedVersion: 2
         x: 704
         y: 92
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1092,7 +1103,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_24
+      name: DoorHoles
       rect:
         serializedVersion: 2
         x: 640
@@ -1107,6 +1118,226 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 05cac0ef297872847ab765fec0eb65dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_41
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09bf499123c5b8b4699e4eec40801d82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreasurePlate1
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db58ac66235c8f4da7126d627db8ce9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreasurePlate0
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52958f6daf7795745b5a047d05e8d2d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7c3700f0e70204d97880666ecb860b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48a5dc6d17f7b849b0ff83b72c2b25c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeIdle2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b916ca3459936a14d85de9c88392b4f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e9c400a10838440a979f1a7d829d2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faeff8364e35267468ad005a4ab389b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BeeFly2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 309
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fa24adbcf54eb4fa54a5835fe7af82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerIdle0
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 92
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ace704a825ac34db6adffd453f58cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerIdle1
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 92
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81eb7a2e9ed06a54e9fe667a3db66c66
       vertices: []
       indices: 
       edges: []

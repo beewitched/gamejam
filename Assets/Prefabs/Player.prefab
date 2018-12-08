@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61058824168619188}
   - component: {fileID: 50799967951757394}
   - component: {fileID: 120933398747676802}
+  - component: {fileID: 95364219098048544}
   - component: {fileID: 114657342227448840}
   - component: {fileID: 114270263658512394}
   m_Layer: 0
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1868338968251486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,8 +89,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95364219098048544
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868338968251486}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40adde2bf5b80784a820edd1dbdf374d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114270263658512394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,6 +124,9 @@ MonoBehaviour:
   callKey: 49
   stayKey: 50
   bee: {fileID: 0}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114657342227448840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +142,13 @@ MonoBehaviour:
   jumpStrenght: 5
   jumpKey: 32
   switchKey: 51
+  fireMisselKey: 323
+  interactKey: 101
   bee: {fileID: 0}
+  missel: {fileID: 1052636251478714, guid: 7f379198ee0502e43aad268aaa81e333, type: 2}
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!120 &120933398747676802
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -136,7 +164,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +189,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.02
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -248,8 +276,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0be6e54f59cff8c45b4ec9e11fc627b5, type: 3}
-  m_Color: {r: 0.23985407, g: 0.9108374, b: 0.9245283, a: 1}
+  m_Sprite: {fileID: 21300060, guid: b3ba1032aa8033546b8866874bc0fbce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50829616408823342}
   - component: {fileID: 114244736558468574}
   m_Layer: 0
-  m_Name: MagicMissel
+  m_Name: MagicMissle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

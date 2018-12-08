@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private KeyCode switchKey = KeyCode.Alpha3;
     [SerializeField]
     private KeyCode fireMisselKey = KeyCode.Mouse0;
+    [SerializeField]
+    private KeyCode interactKey = KeyCode.E;
+
 
     [Header("References")]
     [SerializeField]
@@ -42,6 +45,7 @@ public class Player : MonoBehaviour
     // --- | Variables | --------------------------------------------------------------------------
 
     private bool canMove = true;
+    private IInteractWithPlayer interactable;
 
 
     // --- | Methods | ----------------------------------------------------------------------------
@@ -89,10 +93,35 @@ public class Player : MonoBehaviour
                 SwitchPos();
             }
 
+            // Shoot missle.
             if (Input.GetKeyDown(fireMisselKey))
             {
                 FireMissel();
             };
+
+            // Interact.
+            if (interactable != null && Input.GetKeyDown(interactKey))
+            {
+                interactable.Interact();
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IInteractWithPlayer interactable = collision.GetComponent<IInteractWithPlayer>();
+        if (interactable != null && this.interactable != interactable)
+        {
+            this.interactable = interactable;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IInteractWithPlayer interactable = collision.GetComponent<IInteractWithPlayer>();
+        if (interactable != null && this.interactable == interactable)
+        {
+            this.interactable = null;
         }
     }
 

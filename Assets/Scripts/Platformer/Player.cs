@@ -50,6 +50,16 @@ public class Player : MonoBehaviour
     private IInteractWithPlayer interactable;
     private bool isGrounded = false;
 
+    // --- | Properties | -------------------------------------------------------------------------
+
+    public Vector2 PlayerCenter
+    {
+        get
+        {
+            return collider.bounds.center;
+        }
+    }
+
 
     // --- | Methods | ----------------------------------------------------------------------------
 
@@ -158,12 +168,12 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position = bee.PortBeeToPlayer();
+        transform.position = bee.PortBeeToPlayer() - collider.offset;
     }
 
     private bool CheckSpace(Vector2 pos)
     {
-        return !Physics2D.OverlapBox(pos + collider.offset, collider.bounds.size, 0, obstacleLayers);
+        return !Physics2D.OverlapBox(pos, collider.bounds.size, 0, obstacleLayers);
     }
 
     private void FireMissel()

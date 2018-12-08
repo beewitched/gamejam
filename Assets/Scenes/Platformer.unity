@@ -677,6 +677,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 693207130}
+    - target: {fileID: 114593957305763786, guid: da711ebd22f827d4fbd15276863a80be,
+        type: 2}
+      propertyPath: obstacleLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da711ebd22f827d4fbd15276863a80be, type: 2}
   m_IsPrefabAsset: 0

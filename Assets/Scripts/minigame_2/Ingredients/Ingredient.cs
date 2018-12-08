@@ -3,47 +3,96 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Ingredient : IInteractable {
-	private GameObject visual_obj = null;
-	private Sprite visual_sprite = null;
-	private int ammount = 0;
-	private UnityEvent onAmmountZero = null;
+[RequireComponent(typeof(Rigidbody))]
+public class Ingredient : MonoBehaviour, IInteractable {
 
-	public Ingredient(GameObject visual_obj, Sprite visual_sprite, int ammount, UnityEvent onAmmountZero) {
-		this.visual_obj = visual_obj;
-		this.visual_sprite = visual_sprite;
-		this.ammount = ammount;
+    public string ingredient_name = "IngredientTMP";
+    public Sprite sprite = null;
+    public int ammount = 0;
+    public UnityEvent onAmmountZero = new UnityEvent();
 
-		if(onAmmountZero == null) this.onAmmountZero = new UnityEvent();
-		this.onAmmountZero = onAmmountZero;
-	}
+    private Vector3 distance;
+    private float posX, posY;
+    private Rigidbody rgbd;
 
-	public int takeIngredient() {
-		ammount -= 1;
+    private GameObject draggedObject;
+    public bool origin = true;
 
-		if(ammount <= 0) {
-			onAmmountZero.Invoke();
-			return 0;
-		} else {
-			return ammount;
-		}
-	} 
+    public void Drop()
+    {
+        throw new System.NotImplementedException();
+    }
 
-	public GameObject GetVisualObj {
-		get {
-			return visual_obj;
-		}
-	}
+    public void Pickup()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
+        {
+            distance.z++;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0) // back
+        {
+            distance.z--    ;
+        }
 
-	public Sprite GetVisualSprite {
-		get {
-			return visual_sprite;
-		}
-	}
+        Vector3 currPos = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, distance.z);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(currPos);
 
-	public int GetAmmount {
-		get {
-			return ammount;
-		}
-	}
+        
+        if (origin)
+        {
+            draggedObject.transform.position = worldPos;
+        }
+        else
+        {
+            transform.position = worldPos;
+        }
+    }
+
+    public void Interact()
+    {
+        Destroy(this.gameObject);
+    }
+
+    void Start () {
+        this.gameObject.name = ingredient_name;
+        this.rgbd = GetComponent<Rigidbody>();
+
+        if(origin) rgbd.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+    }
+	
+	void Update () {
+
+    }
+
+    private void OnMouseDown()
+    {
+        if(origin)
+        {
+            draggedObject = Instantiate(this.gameObject, this.transform.position, Quaternion.identity) as GameObject;
+            draggedObject.GetComponent<Ingredient>().origin = false;
+            draggedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+
+        if(origin)
+        {
+            distance = Camera.main.WorldToScreenPoint(draggedObject.transform.position);
+        } else
+        {
+            distance = Camera.main.WorldToScreenPoint(transform.position);
+        }
+
+        posX = Input.mousePosition.x - distance.x;
+        posY = Input.mousePosition.y - distance.y;
+    }
+
+    private void OnMouseExit()
+    {
+        rgbd.velocity = Vector3.zero;
+    }
+    private void OnMouseDrag()
+    {
+        Pickup();
+    }
+
+
 }

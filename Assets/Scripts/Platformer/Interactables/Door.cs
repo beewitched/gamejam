@@ -6,31 +6,65 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private BoxCollider2D collider;
-    private SpriteRenderer[] renderers;
+    private DoorSegment[] segments;
 
+    [SerializeField]
+    private int segmentCount = 5;
+    private int seg = 0;
+    private float currSegments = 0;
+    [SerializeField]
+    private float groathSpeed = 0.5f;
+    
     private void Awake()
     {
-        renderers = GetComponentsInChildren<SpriteRenderer>();
+        segments = GetComponentsInChildren<DoorSegment>();
         collider = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+        currSegments = segmentCount;
+    }
+
+    private void Update()
+    {
+        if (currSegments < segmentCount)
+        {
+            currSegments += Time.deltaTime / groathSpeed;
+
+            if (seg != Mathf.Floor(currSegments))
+            {
+                seg++;
+                ShowSegment();
+            }
+        }
     }
 
     public void OpenDoor()
     {
-        SetSpritesEnabled(false);
+        SetHideSegments();
         collider.enabled = false;
     }
 
     public void CloseDoor()
     {
-        SetSpritesEnabled(true);
-        collider.enabled = true;
+        currSegments = 0;
+        seg = 0;
     }
 
-    private void SetSpritesEnabled(bool enabled)
+    private void SetHideSegments()
     {
-        for (int i = 0; i < renderers.Length; i++)
+        for (int i = 0; i < segments.Length; i++)
         {
-            renderers[i].enabled = enabled;
+            segments[i].HideSegment();
+        }
+    }
+
+    private void ShowSegment()
+    {
+        for (int i = 0; i < segments.Length; i++)
+        {
+            segments[i].AddIndex();
         }
     }
 }

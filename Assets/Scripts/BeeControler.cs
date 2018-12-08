@@ -19,6 +19,9 @@ public class BeeControler : MonoBehaviour
     [SerializeField]
     private Bee bee;
 
+    [Header("Layers")]
+    [SerializeField]
+    private LayerMask obstacleLayers;
 
     // --- | Componetns | -------------------------------------------------------------------------
 
@@ -44,22 +47,25 @@ public class BeeControler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(drawKey))
+        if (bee.IsAutoControlled)
         {
-            DrawPath();
+            if (Input.GetKey(drawKey))
+            {
+                DrawPath();
+            }
+
+            else if (Input.GetKeyUp(drawKey))
+            {
+                SendBee();
+            }
         }
 
-        else if (Input.GetKeyUp(drawKey))
-        {
-            SendBee();
-        }
-
-        else if(Input.GetKeyDown(stayKey))
+        else if (Input.GetKeyDown(stayKey))
         {
             bee.SwitchTarget(bee.transform.position);
         }
 
-        else if(Input.GetKeyDown(callKey))
+        else if (Input.GetKeyDown(callKey))
         {
             bee.TargetPlayer();
         }
@@ -98,12 +104,12 @@ public class BeeControler : MonoBehaviour
         Vector2 prevPoint = (Vector2)controllpoints[controllpoints.Count - 1];
         Vector2 deltaDirection = mousePos - prevPoint;
 
-        RaycastHit2D hit = Physics2D.Raycast(prevPoint, deltaDirection, deltaDirection.magnitude);
+        RaycastHit2D hit = Physics2D.Raycast(prevPoint, deltaDirection, deltaDirection.magnitude, obstacleLayers);
         if (hit)
         {
             if (hit.distance > minDistance)
             {
-                AddControllpoint(hit.point);
+                AddControllpoint(hit.point + hit.normal * 0.05f);
             }
         }
         else if (deltaDirection.magnitude > minDistance)

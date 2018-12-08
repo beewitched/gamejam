@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class Bee : MonoBehaviour
 {
     // --- | Serialized | -------------------------------------------------------------------------
@@ -26,6 +26,13 @@ public class Bee : MonoBehaviour
     // --- | Variables | --------------------------------------------------------------------------
 
     private bool isAutoControlled = true;
+    public bool IsAutoControlled
+    {
+        get
+        {
+            return isAutoControlled;
+        }
+    }
     private bool targetPlayer = true;
 
     private Vector2 targetPos;

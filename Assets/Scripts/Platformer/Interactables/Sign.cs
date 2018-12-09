@@ -31,6 +31,7 @@ public class Sign : MonoBehaviour, IInteractWithPlayer
     {
         if (isInteractable)
         {
+            Debug.Log("INTERACT");
             DialogueManager.Instance.StartDialogue(dialogue);
         }
     }

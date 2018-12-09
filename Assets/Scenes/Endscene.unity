@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,12 +492,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 427108319}
   m_CullTransparentMesh: 0
---- !u!114 &586731437 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114199073509075328, guid: c74bf4205b3853c4ea7e4cc17a83d784,
-    type: 2}
-  m_PrefabInternal: {fileID: 1211872971}
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1001 &624193060
 Prefab:
   m_ObjectHideFlags: 0
@@ -546,7 +540,7 @@ Prefab:
         type: 2}
       propertyPath: dialogueText
       value: 
-      objectReference: {fileID: 586731437}
+      objectReference: {fileID: 1249893323}
     - target: {fileID: 114406635401399196, guid: f9d1221dc55ef5b4b8ad0793cea732f2,
         type: 2}
       propertyPath: animator
@@ -1190,9 +1184,25 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DisplayNextSentence
       objectReference: {fileID: 0}
+    - target: {fileID: 114250587384502538, guid: c74bf4205b3853c4ea7e4cc17a83d784,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2052507627}
+    - target: {fileID: 114250587384502538, guid: c74bf4205b3853c4ea7e4cc17a83d784,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c74bf4205b3853c4ea7e4cc17a83d784, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1249893323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114356631114970186, guid: c74bf4205b3853c4ea7e4cc17a83d784,
+    type: 2}
+  m_PrefabInternal: {fileID: 1211872971}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &1270170512
 GameObject:
   m_ObjectHideFlags: 0

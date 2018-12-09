@@ -86,9 +86,9 @@ public class DialogueManager : MonoBehaviour {
             }
 
             dialogueText.text += sentenceToChar[i];
-            yield return null;
         }
 
+        yield return null;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -109,7 +109,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;

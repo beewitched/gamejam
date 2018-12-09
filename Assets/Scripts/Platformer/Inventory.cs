@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     }
     private int itemCount = 0;
     private bool isFull = false;
-
+    public UnityEvent onAddItem = new UnityEvent();
 
     // --- | Methods | ----------------------------------------------------------------------------
 
@@ -56,6 +56,7 @@ public class Inventory : MonoBehaviour
         if (isFull) { return false; }
         for (int i = 0; i < items.Length; i++)
         {
+            if (items[i] == null) { break; }
             if (items[i].Group == info.Group)
             {
                 return false;
@@ -69,6 +70,8 @@ public class Inventory : MonoBehaviour
             isFull = true;
             OnInventoryFull.Invoke();
         }
+
+        if (onAddItem != null) onAddItem.Invoke();
         return true;
     }
 }

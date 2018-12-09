@@ -58,6 +58,8 @@ TextureImporter:
     21300106: PlayerIdle3
     21300108: PlayerIdle4
     21300110: PlayerIdle5
+    21300112: beedoor_closed
+    21300114: beedoor_open
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1432,6 +1434,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 493033012846d5d468a27275ea93c709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beedoor_closed
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 412
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61625e9e7ef19e54eae42ed4f81f201e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beedoor_open
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 412
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2b6bcbd0f9ccf489cee9480a0eaa49
       vertices: []
       indices: 
       edges: []

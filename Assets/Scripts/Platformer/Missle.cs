@@ -16,10 +16,16 @@ public class Missle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IInteractWithAttack interactable = collision.transform.GetComponent<IInteractWithAttack>();
-        if (interactable != null)
+        CircleCollider2D collider = GetComponent<CircleCollider2D>();
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(collider.bounds.center, collider.radius);
+
+        for(int i = 0; i < colliders.Length; i++)
         {
-            interactable.GetHit();
+            IInteractWithAttack interactable = colliders[i].transform.GetComponent<IInteractWithAttack>();
+            if (interactable != null)
+            {
+                interactable.GetHit();
+            }
         }
         Destroy(gameObject);
     }

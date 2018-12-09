@@ -6,7 +6,7 @@ public class Missle : MonoBehaviour
 {
     [SerializeField]
     private float speed = 3f;
-    
+
 
     public void SetDirection(Vector2 direction, Collider2D playerCollider)
     {

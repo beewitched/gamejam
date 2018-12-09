@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private float speed = 2f;
     [SerializeField]
     private float jumpStrenght = 3f;
+    [SerializeField]
+    private float spellCooldown = 0.5f;
 
     [Header("Keys")]
     [SerializeField]
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Vector2 externalForces = Vector2.zero;
     private float currSpeed = 0f;
+    private float currSpellCooldown = 0;
 
 
     // --- | Properties | -------------------------------------------------------------------------
@@ -134,6 +137,7 @@ public class Player : MonoBehaviour
         }
 
         UpdateAnimations();
+        UpdateCooldowns();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -195,11 +199,13 @@ public class Player : MonoBehaviour
 
     private void FireMissle()
     {
+        if (currSpellCooldown > 0) { return; }
         Missle script = Instantiate(missel, (Vector2)collider.bounds.center, Quaternion.identity).GetComponent<Missle>();
 
         //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
         Vector2 direction = renderer.flipX ? Vector2.left : Vector2.right;
         script.SetDirection(direction, collider);
+        currSpellCooldown = spellCooldown;
     }
 
     private void UpdateAnimations()
@@ -216,5 +222,13 @@ public class Player : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("speed", currSpeed);
         animator.SetFloat("gravity", controller.velocity.y);
+    }
+
+    private void UpdateCooldowns()
+    {   
+        if (currSpellCooldown > 0)
+        {
+            currSpellCooldown = Mathf.Clamp(currSpellCooldown -= Time.deltaTime, 0, spellCooldown);
+        }
     }
 }

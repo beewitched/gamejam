@@ -250,6 +250,11 @@ Prefab:
       propertyPath: obstacleLayers.m_Bits
       value: 1536
       objectReference: {fileID: 0}
+    - target: {fileID: 114657342227448840, guid: 1701c07648712af4e819c4f76362fdd3,
+        type: 2}
+      propertyPath: spellCooldown
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
   m_IsPrefabAsset: 0

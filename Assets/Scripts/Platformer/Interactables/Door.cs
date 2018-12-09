@@ -43,6 +43,7 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         SetHideSegments();
+        currSegments = segmentCount;
     }
 
     public void CloseDoor()

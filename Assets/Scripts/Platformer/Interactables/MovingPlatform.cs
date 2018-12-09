@@ -94,6 +94,11 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        path.material.mainTextureScale = new Vector2(Vector3.Distance(controlPoints[0], controlPoints[controlPoints.Length - 1]), 1);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == "Player")

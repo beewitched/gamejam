@@ -61,7 +61,7 @@ public class PickUp : MonoBehaviour, IInteractWithPlayer
     public void Interact()
     {
         if (!isInteractable) { return; }
-        if (Inventory.Instance.AddPickUp(new PickUpInfo(name, group, renderer.sprite)))
+        if (Inventory.Instance.AddItem(new PickUpInfo(name, group, renderer.sprite)))
         {
             for (int i = 0; i < InScene[group].Count; i++)
             {

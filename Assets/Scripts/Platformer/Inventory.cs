@@ -15,7 +15,14 @@ public class Inventory : MonoBehaviour
 
     // --- | Variables& Propterties | -------------------------------------------------------------
 
-    private List<PickUpInfo> pickups = new List<PickUpInfo>();
+    private List<PickUpInfo> items = new List<PickUpInfo>();
+    public List<PickUpInfo> Items
+    {
+        get
+        {
+            return items;
+        }
+    }
 
 
     // --- | Methods | ----------------------------------------------------------------------------
@@ -26,18 +33,19 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
-    public bool AddPickUp(PickUpInfo info)
+    public bool AddItem(PickUpInfo info)
     {
-        for (int i = 0; i < pickups.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            if (pickups[i].Group == info.Group)
+            if (items[i].Group == info.Group)
             {
                 return false;
             }
         }
-        pickups.Add(info);
+        items.Add(info);
         return true;
     }
 }

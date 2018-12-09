@@ -18,6 +18,10 @@ public class Bee : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject portParticles;
+
     [Header("Layers")]
     [SerializeField]
     private LayerMask obstacleLayers;
@@ -136,6 +140,7 @@ public class Bee : MonoBehaviour
         EndControll();
         transform.position = playerPos;
         targetPos = transform.position;
+        Instantiate(portParticles, transform.position, Quaternion.identity);
         return beePos;
     }
 

@@ -648,7 +648,7 @@ MonoBehaviour:
     name: Witch
     sentences:
     - Oh no! It happened again...
-    - My Spell failed and I turned my friend into a bee!!!
+    - My spell failed and I turned my friend into a bee!!!
     - Only the GRAND BEEZARD can help us now!
     - I have to go see the council...
     onDialogueEnd:

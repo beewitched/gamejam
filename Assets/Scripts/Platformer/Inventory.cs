@@ -72,8 +72,8 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        itemCount++;
         items[itemCount] = info;
+        itemCount++;
         if (itemCount >= inventorySize)
         {
             isFull = true;

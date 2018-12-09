@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ListUI : MonoBehaviour {
     public GameObject ingredientDisplay;
     public GameObject parentList;
-    private PickUp[] pickUps;
+    private PickUpInfo[] pickUps;
     public KeyCode openCloseKey = KeyCode.Tab;
     private bool open = false;
     public Transform openPos;
@@ -41,7 +41,7 @@ public class ListUI : MonoBehaviour {
 
         foreach(PickUpInfo i in pickupsInventory)
         {
-            foreach(PickUp p in pickUps)
+            foreach(PickUpInfo p in pickUps)
             {
                 if(i != null)
                 {
@@ -56,12 +56,12 @@ public class ListUI : MonoBehaviour {
         }
     }
 
-    private void BuildUI(PickUp[] list)
+    private void BuildUI(PickUpInfo[] list)
     {
-        foreach(PickUp p in list)
+        foreach(PickUpInfo p in list)
         {
             GameObject obj = Instantiate(ingredientDisplay, parentList.transform) as GameObject;
-            obj.GetComponent<Image>().sprite = p.Renderer.sprite;
+            obj.GetComponent<Image>().sprite = p.Icon;
             obj.name = p.Group;
             if(p.Name.StartsWith("Ei"))
             {

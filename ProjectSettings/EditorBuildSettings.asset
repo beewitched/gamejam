@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level02.unity
     guid: c63037365b4fe994c997d9da79b38bd1
+  - enabled: 1
+    path: Assets/Scenes/cauldron.unity
+    guid: 6f898ef7e08abeb44bb16e848c486e04
   m_configObjects: {}

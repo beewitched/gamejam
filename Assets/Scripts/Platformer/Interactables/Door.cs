@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class Door : MonoBehaviour
 {
     //private BoxCollider2D[] collider;

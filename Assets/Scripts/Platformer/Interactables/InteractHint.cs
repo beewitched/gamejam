@@ -12,7 +12,7 @@ public class InteractHint : MonoBehaviour
         canvas = GetComponent<Canvas>();
         interacable = GetComponentInParent<IInteractWithPlayer>();
         canvas.enabled = false;
-
+        
         CircleCollider2D parentCol = GetComponentInParent<CircleCollider2D>();
         if (parentCol)
         {

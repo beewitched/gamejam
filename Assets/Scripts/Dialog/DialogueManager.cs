@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class DialogueManager : MonoBehaviour {
     public KeyCode skip = KeyCode.Space;
     private bool isActive = false;
     public bool IsActive { get; private set; }
+    private UnityEvent onDialogueEnd = new UnityEvent();
 
     private void Awake()
     {
@@ -91,6 +93,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue)
     {
+        onDialogueEnd = dialogue.onDialogueEnd;
         animator.SetBool("IsOpen", true);
         isActive = true;
         nameText.text = dialogue.name;
@@ -121,5 +124,7 @@ public class DialogueManager : MonoBehaviour {
     {
         isActive = false;
         animator.SetBool("IsOpen", false);
+
+        if (onDialogueEnd != null) onDialogueEnd.Invoke();
     }
 }

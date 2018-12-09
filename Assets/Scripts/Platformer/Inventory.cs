@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
     public bool AddPickUp(PickUpInfo info)

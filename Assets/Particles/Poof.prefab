@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4166126467259892}
   - component: {fileID: 198352984852810608}
   - component: {fileID: 199474255150215712}
+  - component: {fileID: 114032572807526170}
   m_Layer: 0
   m_Name: Poof
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114032572807526170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755436096488808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d146f36d3d67841a50d05f1658a8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198352984852810608
 ParticleSystem:
   m_ObjectHideFlags: 1

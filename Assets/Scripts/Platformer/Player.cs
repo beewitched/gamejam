@@ -28,11 +28,15 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    Bee bee;
+    private Bee bee;
 
     [Header("Prefabs")]
     [SerializeField]
-    GameObject missel;
+    private GameObject missel;
+
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject switchParticles; 
 
     [Header("Layers")]
     [SerializeField]
@@ -190,6 +194,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.position = bee.PortBeeToPlayer() - collider.offset;
+        Instantiate(switchParticles, collider.bounds.center, Quaternion.identity);
     }
 
     private bool CheckSpace(Vector2 pos)

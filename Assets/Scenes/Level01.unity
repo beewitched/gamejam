@@ -289,11 +289,11 @@ Prefab:
         type: 2}
       propertyPath: OnDeActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1928186272}
+      objectReference: {fileID: 1718519040}
     - target: {fileID: 114492134503335782, guid: 46c32e0d67b927d45b6f850312046223,
         type: 2}
       propertyPath: OnDeActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Close
+      value: StartTimer
       objectReference: {fileID: 0}
     - target: {fileID: 114492134503335782, guid: 46c32e0d67b927d45b6f850312046223,
         type: 2}
@@ -40819,6 +40819,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4004626053873904, guid: c0826c17dde42284db33744c3fc3386c,
     type: 2}
   m_PrefabInternal: {fileID: 1651892931}
+--- !u!1 &1718519035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1795625150564818, guid: 46c32e0d67b927d45b6f850312046223,
+    type: 2}
+  m_PrefabInternal: {fileID: 76332508}
+--- !u!114 &1718519040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718519035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c313a0ab2e4acf546ab351135e8c8c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startOnStart: 0
+  time: 2
+  OnTimerEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1928186272}
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1779830729
 Prefab:
   m_ObjectHideFlags: 0
@@ -41483,11 +41517,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 14.93
+      value: 33.3
       objectReference: {fileID: 0}
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 39.22
+      value: 29.6
       objectReference: {fileID: 0}
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.z

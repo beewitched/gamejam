@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212677009921366630}
   - component: {fileID: 61421309971542576}
   - component: {fileID: 114195659905320060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4972749560686092}
   - component: {fileID: 212706725522582152}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173dcfdcc03a1064ea057290a62f68a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  segmentCount: 5
+  groathSpeed: 0.5
 --- !u!212 &212677009921366630
 SpriteRenderer:
   m_ObjectHideFlags: 1

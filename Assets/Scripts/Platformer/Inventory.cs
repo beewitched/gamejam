@@ -19,14 +19,16 @@ public class Inventory : MonoBehaviour
     [Header("Settings")]
     [SerializeField]
     private int inventorySize = 3;
+    [SerializeField]
+    private PickUpInfo[] items;
 
     [Header("Events")]
+    [SerializeField]
     private UnityEvent OnInventoryFull;
 
 
     // --- | Variables& Propterties | -------------------------------------------------------------
-    [SerializeField]
-    private PickUpInfo[] items;
+
     public PickUpInfo[] Items
     {
         get
@@ -48,7 +50,14 @@ public class Inventory : MonoBehaviour
         }
         DontDestroyOnLoad(this);
 
-        items = new PickUpInfo[inventorySize];
+        if (items == null || items.Length <= 0)
+        {
+            items = new PickUpInfo[inventorySize];
+        }
+        else
+        {
+            inventorySize = items.Length;
+        }
     }
 
     public bool AddItem(PickUpInfo info)

@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public PickUp[] GetCookingList {
+        get { return cookingList; }
+    }
+
     [SerializeField]
     private PickUp[] cookingList = new PickUp[2];
 

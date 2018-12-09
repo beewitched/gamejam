@@ -35,6 +35,11 @@ public class PickUp : MonoBehaviour, IInteractWithPlayer
     }
 
     private SpriteRenderer renderer;
+    public SpriteRenderer Renderer {
+        get {
+            return renderer;
+        }
+    }
 
     public static Dictionary<string, List<PickUp>> all = new Dictionary<string, List<PickUp>>();
     public static Dictionary<string, List<PickUp>> InScene

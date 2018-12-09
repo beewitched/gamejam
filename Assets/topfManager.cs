@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class topfManager : MonoBehaviour {
 
-    public Sprite[] ingredients;
+    public SpriteRenderer[] ingredients;
+    public Dialogue dialog;
 
-	// Use this for initialization
-	void Start () {
-		Inventory.Instance.PickUps
-	}
+    private PickUpInfo[] items;
+
+    // Use this for initialization
+    void Start () {
+        DialogueManager.Instance.StartDialogue(dialog);
+        items = Inventory.Instance.Items;
+        for(int i = 0; i < items.Length; i++)
+        {
+            Debug.Log("a");
+            ingredients[i].sprite = items[i].Icon;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

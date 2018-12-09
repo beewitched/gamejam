@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
 
 
     // --- | Variables& Propterties | -------------------------------------------------------------
-
+    [SerializeField]
     private PickUpInfo[] items;
     public PickUpInfo[] Items
     {

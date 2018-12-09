@@ -16,11 +16,13 @@ public class DoorSegment : MonoBehaviour
     private int offset = 0;
 
     private SpriteRenderer renderer;
+    private BoxCollider2D collider;
 
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
         startSprite = renderer.sprite;
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -37,6 +39,7 @@ public class DoorSegment : MonoBehaviour
         if (currIndex > 0 && currIndex < sprites.Length && currIndex <= maxIndex)
         {
             renderer.sprite = sprites[currIndex];
+            collider.enabled = true;
         }
     }
 
@@ -44,5 +47,6 @@ public class DoorSegment : MonoBehaviour
     {
         currIndex = -offset;
         renderer.sprite = null;
+        collider.enabled = false;
     }
 }

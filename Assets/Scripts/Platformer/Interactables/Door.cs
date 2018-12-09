@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Door : MonoBehaviour
 {
-    private BoxCollider2D collider;
+    //private BoxCollider2D[] collider;
     private DoorSegment[] segments;
 
     [SerializeField]
@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         segments = GetComponentsInChildren<DoorSegment>();
-        collider = GetComponent<BoxCollider2D>();
+        //collider = GetComponentsInChildren<BoxCollider2D>();
     }
 
     private void Start()
@@ -43,7 +43,6 @@ public class Door : MonoBehaviour
     public void OpenDoor()
     {
         SetHideSegments();
-        collider.enabled = false;
     }
 
     public void CloseDoor()
@@ -57,6 +56,7 @@ public class Door : MonoBehaviour
         for (int i = 0; i < segments.Length; i++)
         {
             segments[i].HideSegment();
+            //collider[i].enabled = false;
         }
     }
 
@@ -65,6 +65,7 @@ public class Door : MonoBehaviour
         for (int i = 0; i < segments.Length; i++)
         {
             segments[i].AddIndex();
+            //collider[i].enabled = true;
         }
     }
 }

@@ -60,6 +60,8 @@ TextureImporter:
     21300110: PlayerIdle5
     21300112: beedoor_closed
     21300114: beedoor_open
+    21300116: Missle
+    21300118: MissleParticles
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1474,6 +1476,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bf2b6bcbd0f9ccf489cee9480a0eaa49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Missle
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 164
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ecbcfaf8db69504caf9d5d3bbd8f0f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MissleParticles
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 174
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b714e3e4a4bf949b7b33ee01f65a49
       vertices: []
       indices: 
       edges: []

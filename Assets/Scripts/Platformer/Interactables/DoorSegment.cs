@@ -6,14 +6,14 @@ public class DoorSegment : MonoBehaviour
 {
     [SerializeField]
     private Sprite[] sprites = new Sprite[2];
-    private Sprite startSprite;
 
     [SerializeField]
     private int maxIndex = 0;
-    private int currIndex;
 
     [SerializeField]
     private int offset = 0;
+
+    private int currIndex;
 
     private SpriteRenderer renderer;
     private BoxCollider2D collider;
@@ -21,7 +21,6 @@ public class DoorSegment : MonoBehaviour
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
-        startSprite = renderer.sprite;
         collider = GetComponent<BoxCollider2D>();
     }
 

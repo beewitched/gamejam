@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(BetterDoor))]
 public class BetterDoorEditor : Editor
 {
-    public override void OnInspectorGUI()
+     public override void OnInspectorGUI()
     {
         BetterDoor door = (BetterDoor)target;
 
@@ -19,7 +19,8 @@ public class BetterDoorEditor : Editor
         }
         while (childs > door.transform.childCount)
         {
-            new BetterSegment(door.transform.childCount * 2, door.transform);
+            new BetterSegment(door.transform.childCount * 2, door.transform, Vector2.up * door.transform.childCount);
         }
+
     }
 }

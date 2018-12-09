@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Obstacles
-  - 
+  - Obstacle
+  - Door
   - 
   - 
   - 
@@ -50,11 +50,11 @@ TagManager:
   - name: Ground
     uniqueID: 4280739237
     locked: 0
-  - name: Player
-    uniqueID: 2390486225
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2390486225
     locked: 0
   - name: Foreground
     uniqueID: 1412815613

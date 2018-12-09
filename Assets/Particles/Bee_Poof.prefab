@@ -18,9 +18,16 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Particles/Bee_Poof.prefab
   - component: {fileID: 4345337826786964}
   - component: {fileID: 198634456317129464}
   - component: {fileID: 199255678368548628}
+=======
+  - component: {fileID: 4166126467259892}
+  - component: {fileID: 198352984852810608}
+  - component: {fileID: 199474255150215712}
+  - component: {fileID: 114032572807526170}
+>>>>>>> bfc08035978e360e9fd0a9995287ac18b253a58d:Assets/Particles/Poof.prefab
   m_Layer: 0
   m_Name: Bee_Poof
   m_TagString: Untagged
@@ -35,13 +42,33 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377947242447534}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+<<<<<<< HEAD:Assets/Particles/Bee_Poof.prefab
   m_LocalPosition: {x: 60.55, y: 38.459587, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalPosition: {x: -34.078495, y: 12.56544, z: -10}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+>>>>>>> bfc08035978e360e9fd0a9995287ac18b253a58d:Assets/Particles/Poof.prefab
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Particles/Bee_Poof.prefab
 --- !u!198 &198634456317129464
+=======
+--- !u!114 &114032572807526170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755436096488808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d146f36d3d67841a50d05f1658a8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!198 &198352984852810608
+>>>>>>> bfc08035978e360e9fd0a9995287ac18b253a58d:Assets/Particles/Poof.prefab
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

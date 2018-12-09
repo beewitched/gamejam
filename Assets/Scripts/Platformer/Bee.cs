@@ -18,6 +18,10 @@ public class Bee : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject portParticles;
+
     [Header("Layers")]
     [SerializeField]
     private LayerMask obstacleLayers;
@@ -136,6 +140,7 @@ public class Bee : MonoBehaviour
         EndControll();
         transform.position = playerPos;
         targetPos = transform.position;
+        Instantiate(portParticles, transform.position, Quaternion.identity);
         return beePos;
     }
 
@@ -174,9 +179,26 @@ public class Bee : MonoBehaviour
         Vector2 deltaDistance = Vector2.zero;
         for (int i = currentControllpointIndex; i < controllpoints.Length; i++)
         {
-            deltaDistance = controllpoints[i] - transform.position;
-            currentControllpointIndex = i;
-            if (deltaDistance.magnitude < maxDistance) { continue; }
+            Vector2 newDelta = controllpoints[i] - transform.position;
+            Debug.DrawRay(transform.position, newDelta, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, newDelta, newDelta.magnitude, obstacleLayers);
+            if (!hit)
+            {
+                deltaDistance = newDelta;
+                currentControllpointIndex = i;
+                if (deltaDistance.magnitude < maxDistance) { continue; }
+            }
+            else
+            {
+                if (newDelta.magnitude < 0.01f)
+                {
+                    return transform.position;
+                }
+                else
+                {
+                    return hit.point - newDelta.normalized * 0.01f;
+                }
+            }
 
             FlipSprite(deltaDistance.x);
             animator.SetBool("isMoving", true);

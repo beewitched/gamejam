@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PreasurePlate : MonoBehaviour
+public class PreasurePlate : MonoBehaviour, IInteractWithAttack
 {
     // --- | Serialized | -------------------------------------------------------------------------
 
@@ -35,13 +35,25 @@ public class PreasurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Player player = collision.GetComponent<Player>();
+        if (player == null) { return; }
+
         renderer.sprite = downSprite;
         OnActivate.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Player player = collision.GetComponent<Player>();
+        if (player == null) { return; }
+
         renderer.sprite = upSprite;
+        OnDeActivate.Invoke();
+    }
+
+    public void GetHit()
+    {
+        OnActivate.Invoke();
         OnDeActivate.Invoke();
     }
 }

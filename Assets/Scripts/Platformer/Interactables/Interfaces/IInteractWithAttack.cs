@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractWithPlayer
+public interface IInteractWithAttack
 {
-    void Interact();
+    void GetHit();
 }

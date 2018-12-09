@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private float speed = 2f;
     [SerializeField]
     private float jumpStrenght = 3f;
+    [SerializeField]
+    private float spellCooldown = 0.5f;
 
     [Header("Keys")]
     [SerializeField]
@@ -26,11 +28,15 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    Bee bee;
+    private Bee bee;
 
     [Header("Prefabs")]
     [SerializeField]
-    GameObject missel;
+    private GameObject missel;
+
+    [Header("Particles")]
+    [SerializeField]
+    private GameObject switchParticles; 
 
     [Header("Layers")]
     [SerializeField]
@@ -49,6 +55,11 @@ public class Player : MonoBehaviour
     private bool canMove = true;
     private IInteractWithPlayer interactable;
     private bool isGrounded = false;
+    private Vector2 velocity = Vector2.zero;
+    private Vector2 externalForces = Vector2.zero;
+    private float currSpeed = 0f;
+    private float currSpellCooldown = 0;
+
 
     // --- | Properties | -------------------------------------------------------------------------
 
@@ -80,11 +91,13 @@ public class Player : MonoBehaviour
         {
             // Get horizontal movement.
             Vector2 moveDir = controller.velocity;
-            moveDir.x = Input.GetAxisRaw("Horizontal") * speed;
+            currSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            moveDir.x = currSpeed + externalForces.x;
 
             // Move character.
             controller.velocity = moveDir;
         }
+        externalForces = Vector2.zero;
     }
 
     private void Update()
@@ -100,7 +113,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (canMove)
+        if (canMove && ((DialogueManager.Instance && !DialogueManager.Instance.IsActive) || !DialogueManager.Instance))
         {
             // Jump.
             if (Input.GetKeyDown(jumpKey) && isGrounded)
@@ -121,13 +134,14 @@ public class Player : MonoBehaviour
             };
 
             // Interact.
-            if (interactable != null && Input.GetKeyDown(interactKey))
+            if (Input.GetKeyDown(interactKey) && interactable != null && interactable.IsInteractable)
             {
                 interactable.Interact();
             }
         }
 
         UpdateAnimations();
+        UpdateCooldowns();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -160,6 +174,11 @@ public class Player : MonoBehaviour
         canMove = false;
     }
 
+    public void AddForce(Vector2 force)
+    {
+        externalForces += force;
+    }
+
     // Private Methods ------------------------------------
 
     private void Jump()
@@ -175,6 +194,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.position = bee.PortBeeToPlayer() - collider.offset;
+        Instantiate(switchParticles, collider.bounds.center, Quaternion.identity);
     }
 
     private bool CheckSpace(Vector2 pos)
@@ -184,11 +204,13 @@ public class Player : MonoBehaviour
 
     private void FireMissle()
     {
+        if (currSpellCooldown > 0) { return; }
         Missle script = Instantiate(missel, (Vector2)collider.bounds.center, Quaternion.identity).GetComponent<Missle>();
 
         //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - collider.bounds.center;
         Vector2 direction = renderer.flipX ? Vector2.left : Vector2.right;
         script.SetDirection(direction, collider);
+        currSpellCooldown = spellCooldown;
     }
 
     private void UpdateAnimations()
@@ -203,7 +225,15 @@ public class Player : MonoBehaviour
         }
 
         animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("speed", controller.velocity.x);
+        animator.SetFloat("speed", currSpeed);
         animator.SetFloat("gravity", controller.velocity.y);
+    }
+
+    private void UpdateCooldowns()
+    {   
+        if (currSpellCooldown > 0)
+        {
+            currSpellCooldown = Mathf.Clamp(currSpellCooldown -= Time.deltaTime, 0, spellCooldown);
+        }
     }
 }

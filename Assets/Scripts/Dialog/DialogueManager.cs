@@ -3,25 +3,49 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour {
+
+    private static DialogueManager instance;
+    public static DialogueManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
     private Queue<string> sentences = new Queue<string>();
     public KeyCode skip = KeyCode.Space;
+    private bool isActive = false;
+    public bool IsActive { get; private set; }
+    private UnityEvent onDialogueEnd = new UnityEvent();
 
-    private void Update()
+    private void Awake()
     {
-        if(Input.GetKeyDown(skip))
+        if (!instance)
         {
-            DisplayNextSentence();
+            instance = this;
         }
     }
 
     private void Start()
     {
         animator.SetBool("IsOpen", false);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(skip))
+        {
+            DisplayNextSentence();
+        }
+    }
+    private void LateUpdate()
+    {
+        IsActive = isActive;
     }
 
     private IEnumerator TypeSentence(string sentence)
@@ -69,7 +93,9 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue)
     {
+        onDialogueEnd = dialogue.onDialogueEnd;
         animator.SetBool("IsOpen", true);
+        isActive = true;
         nameText.text = dialogue.name;
         sentences.Clear();
 
@@ -96,6 +122,9 @@ public class DialogueManager : MonoBehaviour {
 
     private void EndDialogue()
     {
+        isActive = false;
         animator.SetBool("IsOpen", false);
+
+        if (onDialogueEnd != null) onDialogueEnd.Invoke();
     }
 }

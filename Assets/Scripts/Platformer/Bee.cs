@@ -185,7 +185,14 @@ public class Bee : MonoBehaviour
             }
             else
             {
-                return transform.position;
+                if (newDelta.magnitude < 0.01f)
+                {
+                    return transform.position;
+                }
+                else
+                {
+                    return hit.point - newDelta.normalized * 0.01f;
+                }
             }
 
             FlipSprite(deltaDistance.x);

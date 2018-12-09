@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -13,9 +14,28 @@ public class Inventory : MonoBehaviour
     }
 
 
+    // --- | Serialized | -------------------------------------------------------------------------
+
+    [Header("Settings")]
+    [SerializeField]
+    private int inventorySize = 3;
+
+    [Header("Events")]
+    private UnityEvent OnInventoryFull;
+
+
     // --- | Variables& Propterties | -------------------------------------------------------------
 
-    private List<PickUpInfo> pickups = new List<PickUpInfo>();
+    private PickUpInfo[] items;
+    public PickUpInfo[] Items
+    {
+        get
+        {
+            return items;
+        }
+    }
+    private int itemCount = 0;
+    private bool isFull = false;
 
 
     // --- | Methods | ----------------------------------------------------------------------------
@@ -26,18 +46,29 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(this);
+
+        items = new PickUpInfo[inventorySize];
     }
 
-    public bool AddPickUp(PickUpInfo info)
+    public bool AddItem(PickUpInfo info)
     {
-        for (int i = 0; i < pickups.Count; i++)
+        if (isFull) { return false; }
+        for (int i = 0; i < items.Length; i++)
         {
-            if (pickups[i].Group == info.Group)
+            if (items[i].Group == info.Group)
             {
                 return false;
             }
         }
-        pickups.Add(info);
+
+        itemCount++;
+        items[itemCount] = info;
+        if (itemCount >= inventorySize)
+        {
+            isFull = true;
+            OnInventoryFull.Invoke();
+        }
         return true;
     }
 }

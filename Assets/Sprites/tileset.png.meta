@@ -60,15 +60,8 @@ TextureImporter:
     21300110: PlayerIdle5
     21300112: beedoor_closed
     21300114: beedoor_open
-    21300116: tileset_24
-    21300118: tileset_29
-    21300120: tileset_30
-    21300122: tileset_31
-    21300124: tileset_32
-    21300126: tileset_33
-    21300128: tileset_34
-    21300130: tileset_35
-    21300132: tileset_36
+    21300116: Missle
+    21300118: MissleParticles
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1488,11 +1481,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_24
+      name: Missle
       rect:
         serializedVersion: 2
-        x: 512
-        y: 284
+        x: 699
+        y: 164
         width: 64
         height: 64
       alignment: 0
@@ -1502,39 +1495,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0468e0e12005fe488c700e251db730f
+      spriteID: 0ecbcfaf8db69504caf9d5d3bbd8f0f3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_29
+      name: MissleParticles
       rect:
         serializedVersion: 2
-        x: 576
-        y: 284
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35b1105388f7a5f40a076d619cda97b2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_30
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 284
+        x: 611
+        y: 174
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1542,127 +1515,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecbbaf0a6e0b7b54598ece75f3b1610d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_31
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 284
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9c53e131eeedb94a879d107caba4c86
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_32
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 284
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 130da435bec910f438d404664186cd96
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_33
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 284
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1193a0bd5c2fd9e468565d96f774e1e8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_34
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 284
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07de22de0bc854b4b91789f310765990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_35
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 284
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c7e0031f99acf642be856a6bbb57f31
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_36
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 284
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d5a43a08f9bdef4a90bac32e383f492
+      spriteID: 17b714e3e4a4bf949b7b33ee01f65a49
       vertices: []
       indices: 
       edges: []

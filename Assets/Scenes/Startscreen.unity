@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -645,11 +645,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Dialogue
+    name: Witch
     sentences:
-    - This is sentence 1
-    - This is sentence 2
-    - This is sentence 3
+    - Oh no! It happened again...
+    - My Spell failed and I turned my friend into a bee!!!
+    - Only the GRAND BEEZARD can help us now!
+    - I have to go see the council...
     onDialogueEnd:
       m_PersistentCalls:
         m_Calls:
@@ -1354,10 +1355,28 @@ MonoBehaviour:
   delay: 1.5
   level_num: 1
   secondDialogue:
-    name: 'Second '
+    name: 
     sentences:
-    - asdadsasd
-    - asdadadasd
+    - 'Witch: Please help! I need to see the GRAND BEEZARD. My friend turned into
+      a bee!!!'
+    - 'Beeatrice: Oh! What BEEautiful magic!
+
+      Well done young sorceress!'
+    - 'Witch: No! That''s a bad thing actually! He likes being a human.'
+    - 'Buzz: I see, what a BUZZ kill! In that case the GRAND BEEZARD can surely help
+      you.'
+    - 'Witch: Thats great! I''ll just go see them right now...'
+    - 'Honey: Not so quick! You can''t just BUMBLE into  the GRAND BEEZARDS office.
+      You have to bring an offering.'
+    - 'Witch: An Offering?'
+    - 'Beeatrice: Thats right! How about a potion for our BEEnevolent leader.'
+    - 'Buzz: To keep him BUZZING!'
+    - 'Honey: Here is a list with the ingredients. You should find
+
+      Everything you need in the Mushroom Flower Egg Forest.'
+    - 'Buzz: Now go! And if you don''t know what to do just WING it...
+
+'
     onDialogueEnd:
       m_PersistentCalls:
         m_Calls:

@@ -12,6 +12,7 @@ public class Missle : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
         Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), playerCollider);
+        GetComponent<SpriteRenderer>().flipX = direction.x < 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

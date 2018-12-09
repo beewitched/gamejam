@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (canMove && !DialogueManager.Instance.IsActive)
+        if (canMove && DialogueManager.Instance &&!DialogueManager.Instance.IsActive)
         {
             // Jump.
             if (Input.GetKeyDown(jumpKey) && isGrounded)

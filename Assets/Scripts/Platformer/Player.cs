@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (canMove && DialogueManager.Instance &&!DialogueManager.Instance.IsActive)
+        if (canMove && ((DialogueManager.Instance && !DialogueManager.Instance.IsActive) || !DialogueManager.Instance))
         {
             // Jump.
             if (Input.GetKeyDown(jumpKey) && isGrounded)
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
             };
 
             // Interact.
-            if (interactable != null && Input.GetKeyDown(interactKey))
+            if (Input.GetKeyDown(interactKey) && interactable != null && interactable.IsInteractable)
             {
                 interactable.Interact();
             }

@@ -14,6 +14,15 @@ public class Lever : MonoBehaviour, IInteractWithPlayer
     private Sprite activeSprite;
     [SerializeField]
     private Sprite inActiveSprite;
+    [SerializeField]
+    private bool isInteractable = true;
+    public bool IsInteractable
+    {
+        get
+        {
+            return isInteractable;
+        }
+    }
 
     [Header("Events")]
     [SerializeField]
@@ -22,6 +31,7 @@ public class Lever : MonoBehaviour, IInteractWithPlayer
     private UnityEvent OnDeActivate;
 
     private SpriteRenderer renderer;
+
 
     private void Reset()
     {
@@ -37,17 +47,20 @@ public class Lever : MonoBehaviour, IInteractWithPlayer
         SetSprite();
     }
 
-    void IInteractWithPlayer.Interact()
+    public void Interact()
     {
-        isActive = !isActive;
-        SetSprite();
-        if (isActive)
+        if (isInteractable)
         {
-            OnActivate.Invoke();
-        }
-        else
-        {
-            OnDeActivate.Invoke();
+            isActive = !isActive;
+            SetSprite();
+            if (isActive)
+            {
+                OnActivate.Invoke();
+            }
+            else
+            {
+                OnDeActivate.Invoke();
+            }
         }
     }
 
@@ -61,5 +74,15 @@ public class Lever : MonoBehaviour, IInteractWithPlayer
         {
             renderer.sprite = inActiveSprite;
         }
+    }
+
+    public void EnableInteraction()
+    {
+        isInteractable = true;
+    }
+
+    public void DisableInteraction()
+    {
+        isInteractable = false;
     }
 }

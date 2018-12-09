@@ -5,10 +5,12 @@ using UnityEngine;
 public class InteractHint : MonoBehaviour
 {
     private Canvas canvas;
+    private IInteractWithPlayer interacable;
 
     private void Awake()
     {
         canvas = GetComponent<Canvas>();
+        interacable = GetComponentInParent<IInteractWithPlayer>();
         canvas.enabled = false;
 
         CircleCollider2D parentCol = GetComponentInParent<CircleCollider2D>();
@@ -35,11 +37,17 @@ public class InteractHint : MonoBehaviour
 
     public void ShowHint()
     {
-        canvas.enabled = true;
+        if (interacable.IsInteractable)
+        {
+            canvas.enabled = true;
+        }
     }
 
     public void HideHint()
     {
-        canvas.enabled = false;
+        if (interacable.IsInteractable)
+        {
+            canvas.enabled = false;
+        }
     }
 }

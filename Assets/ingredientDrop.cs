@@ -5,6 +5,7 @@ using UnityEngine;
 public class ingredientDrop : MonoBehaviour
 {
     public Rigidbody rigid;
+    public bool dropped = false;
     // Use this for initialization
     void Start()
     {
@@ -20,5 +21,6 @@ public class ingredientDrop : MonoBehaviour
     public void Drop()
     {
         rigid.useGravity = true;
+        dropped = true;
     }
 }

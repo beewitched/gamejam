@@ -24,4 +24,25 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
     }
+
+    public bool CheckInventory()
+    { 
+        for(int i = 0; i < cookingList.Length; i++)
+        {
+            bool found = false;
+            for(int y = 0; y < Inventory.Instance.Items.Length; y++)
+            {
+                if(cookingList[i].Name == Inventory.Instance.Items[y].Name)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

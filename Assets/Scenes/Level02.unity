@@ -304,11 +304,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 33.3
+      value: 5.3
       objectReference: {fileID: 0}
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.3
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -368,22 +368,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 92309507}
   m_Script: {fileID: 11500000, guid: e4a2b512caecba8469b0f051a8a302fb, type: 3}
---- !u!1 &92309509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1868338968251486, guid: 1701c07648712af4e819c4f76362fdd3,
-    type: 2}
-  m_PrefabInternal: {fileID: 92309507}
---- !u!114 &92309510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 92309509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2378b00f417241243ac466129970ec86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &92309511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4172992185861020, guid: 1701c07648712af4e819c4f76362fdd3,
@@ -2916,6 +2900,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4514354513282066, guid: bbbc9097d861e544aa5f3c51e6fede7b,
     type: 2}
   m_PrefabInternal: {fileID: 242227582}
+--- !u!1 &607706925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607706928}
+  - component: {fileID: 607706927}
+  - component: {fileID: 607706926}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &607706926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607706925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2378b00f417241243ac466129970ec86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 3
+  items: []
+  OnInventoryFull:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1781901881}
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &607706927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607706925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddae06283bb47d045a2dc4c4468dbc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookingList:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!4 &607706928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607706925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.2642913, y: 6.873785, z: 3.8493543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &630062812
 Prefab:
   m_ObjectHideFlags: 0
@@ -7004,6 +7061,12 @@ Transform:
   m_Father: {fileID: 683560540}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781901881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114496681652792568, guid: c0826c17dde42284db33744c3fc3386c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1381457966}
+  m_Script: {fileID: 11500000, guid: 173dcfdcc03a1064ea057290a62f68a7, type: 3}
 --- !u!1001 &1782458535
 Prefab:
   m_ObjectHideFlags: 0

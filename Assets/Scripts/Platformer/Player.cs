@@ -49,6 +49,10 @@ public class Player : MonoBehaviour
     private bool canMove = true;
     private IInteractWithPlayer interactable;
     private bool isGrounded = false;
+    private Vector2 velocity = Vector2.zero;
+    private Vector2 externalForces = Vector2.zero;
+    private float currSpeed = 0f;
+
 
     // --- | Properties | -------------------------------------------------------------------------
 
@@ -80,11 +84,13 @@ public class Player : MonoBehaviour
         {
             // Get horizontal movement.
             Vector2 moveDir = controller.velocity;
-            moveDir.x = Input.GetAxisRaw("Horizontal") * speed;
+            currSpeed = Input.GetAxisRaw("Horizontal") * speed;
+            moveDir.x = currSpeed + externalForces.x;
 
             // Move character.
             controller.velocity = moveDir;
         }
+        externalForces = Vector2.zero;
     }
 
     private void Update()
@@ -160,6 +166,11 @@ public class Player : MonoBehaviour
         canMove = false;
     }
 
+    public void AddForce(Vector2 force)
+    {
+        externalForces += force;
+    }
+
     // Private Methods ------------------------------------
 
     private void Jump()
@@ -203,7 +214,7 @@ public class Player : MonoBehaviour
         }
 
         animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("speed", controller.velocity.x);
+        animator.SetFloat("speed", currSpeed);
         animator.SetFloat("gravity", controller.velocity.y);
     }
 }

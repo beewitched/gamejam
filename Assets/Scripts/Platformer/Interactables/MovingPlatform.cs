@@ -46,11 +46,11 @@ public class MovingPlatform : MonoBehaviour
         Gizmos.color = Color.blue;
         for (int i = 1; i < controlPoints.Length; i++)
         {
-            Gizmos.DrawLine(controlPoints[i - 1], controlPoints[i]);
+            Gizmos.DrawLine(controlPoints[i - 1] + transform.position, controlPoints[i] + transform.position);
         }
         if (loop&& controlPoints.Length > 2)
         {
-            Gizmos.DrawLine(controlPoints[controlPoints.Length - 1], controlPoints[0]);
+            Gizmos.DrawLine(controlPoints[controlPoints.Length - 1] + transform.position, controlPoints[0] + transform.position);
         }
     }
 
@@ -58,14 +58,15 @@ public class MovingPlatform : MonoBehaviour
     {
         controller = GetComponent<Rigidbody2D>();
         path = GetComponent<LineRenderer>();
-        path.positionCount = controlPoints.Length;
-        path.SetPositions(controlPoints);
-        path.loop = loop;
 
         for (int i = 0; i < controlPoints.Length; i++)
         {
-            controlPoints[i] = transform.position;
+            controlPoints[i] += transform.position;
         }
+
+        path.positionCount = controlPoints.Length;
+        path.SetPositions(controlPoints);
+        path.loop = loop;
     }
 
     private void FixedUpdate()
@@ -73,16 +74,45 @@ public class MovingPlatform : MonoBehaviour
         if (isActive)
         {
             Vector2 deltaDistance = NextControllpoint - (Vector2)transform.position;
-
+            Vector2 direction;
             if (deltaDistance.magnitude < speed * Time.deltaTime)
             {
-                controller.velocity = deltaDistance;
+                direction = deltaDistance;
                 SetNextControllPoint();
             }
             else
             {
-                controller.velocity = deltaDistance.normalized * speed;
+                direction = deltaDistance.normalized * speed;
             }
+            controller.velocity = direction;
+
+            Player[] players = GetComponentsInChildren<Player>();
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i].AddForce(direction);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Player")
+        {
+            for (int i = 0; i < collision.contacts.Length; i++)
+            {
+                if (collision.contacts[i].normal == Vector2.down)
+                {
+                    collision.transform.parent = transform;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Player")
+        {
+            collision.transform.parent = null;
         }
     }
 

@@ -72,6 +72,7 @@ TextureImporter:
     21300134: tileset_35
     21300136: tileset_36
     21300138: f
+    21300140: PLatformLine
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -1719,13 +1720,33 @@ TextureImporter:
         width: 15
         height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 201d5aae6915a4c479dc0664e98d64cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLatformLine
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 199
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71a4723451f56243bf005614187f675
       vertices: []
       indices: 
       edges: []
